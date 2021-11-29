@@ -21,7 +21,7 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
 Route::post('register', 'Api\AuthController@register');
 Route::post('login', 'Api\AuthController@login');
 
-Route::group(['middleware' => 'auth:api'], function() {
+
     Route::get('latihan', 'Api\LatihanController@index');
     Route::get('latihan/{id}', 'Api\LatihanController@show');
     Route::post('latihan', 'Api\LatihanController@store');
@@ -33,4 +33,3 @@ Route::group(['middleware' => 'auth:api'], function() {
     Route::post('note', 'Api\NoteController@store');
     Route::put('note/{id}', 'Api\NoteController@update');
     Route::delete('note/{id}', 'Api\NoteController@destroy');
-});
