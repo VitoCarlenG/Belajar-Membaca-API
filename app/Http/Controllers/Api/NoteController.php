@@ -17,13 +17,13 @@ class NoteController extends Controller
         if(count($notes)>0) {
             return response([
                 'message' => 'Retrieve All Success',
-                'data' => $notes
+                'note' => $notes
             ], 200);
         }
 
         return response([
             'message' => 'Empty',
-            'data' => null
+            'note' => null
         ], 400);
     }
 
@@ -34,13 +34,13 @@ class NoteController extends Controller
         if(!is_null($note)) {
             return response([
                 'message' => 'Retrieve Note Success',
-                'data' => $note
+                'note' => [$note]
             ], 200);
         }
 
         return response([
             'message' => 'Note Not Found',
-            'data' => null
+            'note' => null
         ], 404);
     }
 
@@ -58,7 +58,7 @@ class NoteController extends Controller
         $note=Note::create($storeData);
         return response([
             'message' => 'Add Note Success',
-            'data' => $note
+            'note' => $note
         ], 200);
     }
 
@@ -69,20 +69,20 @@ class NoteController extends Controller
         if(is_null($note)) {
             return response([
                 'message' => 'Note Not Found',
-                'data' => null
+                'note' => null
             ], 404);
         }
 
         if($note->delete()) {
             return response([
                 'message' => 'Delete Note Success',
-                'data' => $note
+                'note' => [$note]
             ], 200); 
         }
 
         return response([
             'message' => 'Delete Note Failed',
-            'data' => null,
+            'note' => null,
         ], 400);
     }
 
@@ -92,7 +92,7 @@ class NoteController extends Controller
         if(is_null($note)) {
             return response([
                 'message' => 'Note Not Found',
-                'data' => null
+                'note' => null
             ], 404);
         }
 
@@ -111,13 +111,13 @@ class NoteController extends Controller
         if($note->save()) {
             return response([
                 'message' => 'Update Note Success',
-                'data' => $note
+                'note' => [$note]
             ], 200);
         }
 
         return response([
             'message' => 'Update Note Failed',
-            'data' => null,
+            'note' => null,
         ], 400);
     }
 }
