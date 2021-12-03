@@ -29,12 +29,12 @@ class LatihanController extends Controller
 
     public function show($id)
     {
-        $latihan = [Latihan::find($id)];
+        $latihan = Latihan::find($id);
 
         if(!is_null($latihan)) {
             return response([
                 'message' => 'Retrieve Latihan Success',
-                'latihan' => $latihan
+                'latihan' => [$latihan]
             ], 200);
         }
 
