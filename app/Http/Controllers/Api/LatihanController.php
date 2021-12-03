@@ -114,7 +114,7 @@ class LatihanController extends Controller
         if($latihan->save()) {
             return response([
                 'message' => 'Update Latihan Success',
-                'latihan' => $latihan
+                'latihan' => [$latihan]
             ], 200);
         }
 
