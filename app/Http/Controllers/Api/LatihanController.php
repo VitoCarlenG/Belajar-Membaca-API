@@ -29,7 +29,7 @@ class LatihanController extends Controller
 
     public function show($id)
     {
-        $latihan = Latihan::find($id);
+        $latihan = [Latihan::find($id)];
 
         if(!is_null($latihan)) {
             return response([
@@ -65,7 +65,7 @@ class LatihanController extends Controller
 
     public function destroy($id)
     {
-        $latihan = Latihan::find($id);
+        $latihan = [Latihan::find($id)];
 
         if(is_null($latihan)) {
             return response([
@@ -89,7 +89,7 @@ class LatihanController extends Controller
 
     public function update(Request $request, $id)
     {
-        $latihan=Latihan::find($id);
+        $latihan=[Latihan::find($id)];
         if(is_null($latihan)) {
             return response([
                 'message' => 'Latihan Not Found',
