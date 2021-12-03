@@ -59,7 +59,7 @@ class LatihanController extends Controller
         $latihan=Latihan::create($storeData);
         return response([
             'message' => 'Add Latihan Success',
-            'latihan' => $latihan
+            'latihan' => [$latihan]
         ], 200);
     }
 
