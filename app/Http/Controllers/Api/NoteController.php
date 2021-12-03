@@ -58,7 +58,7 @@ class NoteController extends Controller
         $note=Note::create($storeData);
         return response([
             'message' => 'Add Note Success',
-            'note' => $note
+            'note' => [$note]
         ], 200);
     }
 
