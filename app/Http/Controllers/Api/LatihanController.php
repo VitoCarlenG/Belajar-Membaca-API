@@ -17,13 +17,13 @@ class LatihanController extends Controller
         if(count($latihans)>0) {
             return response([
                 'message' => 'Retrieve All Success',
-                'data' => $latihans
+                'latihan' => $latihans
             ], 200);
         }
 
         return response([
             'message' => 'Empty',
-            'data' => null
+            'latihan' => null
         ], 400);
     }
 
@@ -34,13 +34,13 @@ class LatihanController extends Controller
         if(!is_null($latihan)) {
             return response([
                 'message' => 'Retrieve Latihan Success',
-                'data' => $latihan
+                'latihan' => $latihan
             ], 200);
         }
 
         return response([
             'message' => 'Latihan Not Found',
-            'data' => null
+            'latihan' => null
         ], 404);
     }
 
@@ -59,7 +59,7 @@ class LatihanController extends Controller
         $latihan=Latihan::create($storeData);
         return response([
             'message' => 'Add Latihan Success',
-            'data' => $latihan
+            'latihan' => $latihan
         ], 200);
     }
 
@@ -70,20 +70,20 @@ class LatihanController extends Controller
         if(is_null($latihan)) {
             return response([
                 'message' => 'Latihan Not Found',
-                'data' => null
+                'latihan' => null
             ], 404);
         }
 
         if($latihan->delete()) {
             return response([
                 'message' => 'Delete Latihan Success',
-                'data' => $latihan
+                'latihan' => $latihan
             ], 200); 
         }
 
         return response([
             'message' => 'Delete Latihan Failed',
-            'data' => null,
+            'latihan' => null,
         ], 400);
     }
 
@@ -93,7 +93,7 @@ class LatihanController extends Controller
         if(is_null($latihan)) {
             return response([
                 'message' => 'Latihan Not Found',
-                'data' => null
+                'latihan' => null
             ], 404);
         }
 
@@ -114,13 +114,13 @@ class LatihanController extends Controller
         if($latihan->save()) {
             return response([
                 'message' => 'Update Latihan Success',
-                'data' => $latihan
+                'latihan' => $latihan
             ], 200);
         }
 
         return response([
             'message' => 'Update Latihan Failed',
-            'data' => null,
+            'latihan' => null,
         ], 400);
     }
 }
