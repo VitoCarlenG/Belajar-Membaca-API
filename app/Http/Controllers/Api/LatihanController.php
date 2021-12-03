@@ -65,7 +65,7 @@ class LatihanController extends Controller
 
     public function destroy($id)
     {
-        $latihan = [Latihan::find($id)];
+        $latihan = Latihan::find($id);
 
         if(is_null($latihan)) {
             return response([
@@ -77,7 +77,7 @@ class LatihanController extends Controller
         if($latihan->delete()) {
             return response([
                 'message' => 'Delete Latihan Success',
-                'latihan' => $latihan
+                'latihan' => [$latihan]
             ], 200); 
         }
 
